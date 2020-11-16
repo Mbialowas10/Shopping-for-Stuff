@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    render inertia: "App", props: { products: Product.all }
+    products = Product.prep_for_react(Product.all)
+    render inertia: "App", props: { products: products }
   end
 end

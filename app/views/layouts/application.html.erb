@@ -8,28 +8,11 @@
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'index' %>
   </head>
 
   <body>
     <header>
-      <nav>
-        <%= link_to image_tag("eye.jpg", width: 60), root_path %>
-        <ul>
-          <li>
-            Cart 
-            <% if cart.present? %> 
-              <sup><%= cart.size %></sup>
-              <ul> 
-                <% cart.each do |product| %> 
-                  <li>
-                    <%= product.name %> <%= link_to '❌', cart_path(product), method: :delete %>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
-          </li>
-        </ul>
-      </nav>
       <h1>Buy Our Stuff</h1>
       <h3>Make Us Rich</h3>
     </header>
@@ -39,25 +22,6 @@
     </main>
     
     <footer>
-      <details>
-        <summary>
-            Cart
-            <% if cart.present? %> 
-              <sup><%= cart.size %></sup>
-            <% end %>
-        </summary>
-        <% if cart.present? %> 
-          <ul> 
-            <% cart.each do |product| %> 
-              <li>
-                <%= product.name %> <%= link_to '❌', cart_path(product), method: :delete %>
-              </li>
-            <% end %>
-          </ul>
-        <% else %>
-          <p>No items in your cart.</p>
-        <% end %>
-      </details>
       <hr>
       <p><span>🐐</span> Goats in Coats <span>🧥</span> - Copywrong <%= Time.current.year %></p>
     </footer>

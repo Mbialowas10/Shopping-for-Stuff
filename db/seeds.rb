@@ -5,7 +5,7 @@ Product.delete_all
 39.times do
   p = Product.create(name:        Faker::Commerce.unique.product_name,
                      price_cents: rand(5000..100_000).to_i,
-                     description: Faker::Hipster.sentence(word_count: rand(4..8)))
+                     description: Faker::Hipster.paragraph_by_chars(characters: rand(50..65)))
 
   puts "Creating #{p.name}"
 

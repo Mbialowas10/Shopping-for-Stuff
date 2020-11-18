@@ -1,12 +1,14 @@
 import React from "react";
-import Cart from "./Cart";
+import Header from "./Header";
 import ProductGrid from "./ProductGrid";
 
 export default function App(props) {
   return (
     <>
-      <Cart />
-      <ProductGrid products={props.products} />
+      <Header />
+      <main>
+        <ProductGrid products={props.products} />
+      </main>
     </>
   );
 }

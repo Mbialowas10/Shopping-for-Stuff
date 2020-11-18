@@ -1,6 +1,7 @@
 import React from "react";
 import { InertiaLink } from "@inertiajs/inertia-react";
 import AddRemoveCart from "./AddRemoveCart";
+import Routes from "../routes.js.erb";
 
 export default function ProductGrid({ products }) {
   return (
@@ -9,7 +10,7 @@ export default function ProductGrid({ products }) {
         <aside key={product.id}>
           <img src={product.image_url} alt={product.name} />
           <h3>
-            <InertiaLink href={`/products/${product.id}`}>
+            <InertiaLink href={Routes.product_path(product.id)}>
               {product.name}
             </InertiaLink>
           </h3>

@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
 
   inertia_share do
     {
-      cart: Product.find(session[:cart])
+      cart:         Product.find(session[:cart]),
+      header_image: helpers.image_url("eye.jpg")
     }
   end
 

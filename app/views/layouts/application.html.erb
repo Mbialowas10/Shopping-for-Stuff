@@ -14,6 +14,26 @@
     <header>
       <h1>Buy Our Stuff</h1>
       <h3>Make Us Rich</h3>
+      <nav>
+	<%= link_to image_tag("sf_logo.png", width:60), root_path %>
+	<ul>
+		<li>
+			Cart
+			<% if cart.present? %>
+				<sup><%= cart.size %></sup>
+				<ul>
+					<% cart.each do |product| %>
+						<li>
+							<%= product.name %> <%= link_to '➖', cart_path(product), method: :delete %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+		</li>
+	</ul>
+</nav>
+
+
     </header>
     <main>
       <%= yield %>

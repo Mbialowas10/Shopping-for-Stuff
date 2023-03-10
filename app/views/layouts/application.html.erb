@@ -15,8 +15,15 @@
     <header>
       <h1>Buy Our Stuff</h1>
       <h3>Make Us Rich</h3>
+      <%# debug cart%>
+      <%= debug session[:shopping_cart] %>
     </header>
     <main>
+      <% if flash[:notice] %>
+        <p>
+          <%= flash[:notice] %>
+        </p>
+      <% end %>
       <%= yield %>
     </main>
     <footer>

@@ -16,7 +16,27 @@
       <h1>Buy Our Stuff</h1>
       <h3>Make Us Rich</h3>
       <%# debug cart%>
-      <%= debug session[:shopping_cart] %>
+      <% # debug session[:shopping_cart] %>
+
+      <nav>
+        <%= link_to image_tag("dog.jpg", width:60), root_path %>
+        <ul>
+          Cart
+          <li>
+            <% if cart.present? %>
+              <sup><%= cart.size %></sup>
+              <ul>
+                <% cart.each do |p| %>
+                  <li>
+                    <%= p.name %> <%= button_to '−', cart_path(p), method: :delete %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+
     </header>
     <main>
       <% if flash[:notice] %>
@@ -27,6 +47,29 @@
       <%= yield %>
     </main>
     <footer>
+      <details>
+        <summary>
+          cart
+          <% if cart.present? %>
+            <sup>
+              <%= cart.size %>
+            </sup>
+          <% end %>
+        </summary>
+        <% if cart.present? %>
+        <ul>
+          <% cart.each do |product| %>
+            <li>
+              <%= product.name %> <%= button_to '❌', cart_path(product), method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+        <% else %>
+          <p>
+            No items in your cart 😿
+          </p>
+        <% end %>
+      </details>
       <hr>
       <p><span>🐐</span> Goats in Coats <span>🧥</span> - Copywrong <%= Time.current.year %></p>
     </footer>

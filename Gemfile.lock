@@ -90,6 +90,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     date (3.3.3)
@@ -137,8 +138,15 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
-    psych (5.1.2)
-      stringio
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-nav (1.0.0)
+      pry (>= 0.9.10, < 0.15)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
+    psych (3.3.4)
     public_suffix (5.0.1)
     puma (4.3.12)
       nio4r (~> 2.0)
@@ -197,6 +205,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    slop (3.6.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -210,7 +219,6 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.5.4-x86_64-darwin)
     sqlite3 (1.5.4-x86_64-linux)
-    stringio (3.1.0)
     stripe (8.0.0)
     thor (1.2.1)
     tilt (2.0.11)
@@ -253,7 +261,10 @@ DEPENDENCIES
   image_processing
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  psych
+  pry
+  pry-nav
+  pry-remote
+  psych (< 4)
   puma (~> 4.1)
   rails (~> 7.0, >= 7.0.4)
   sass-rails (>= 6)

@@ -5,8 +5,15 @@
     <h3><%= link_to product.name, product %></h3>
     <p>Price: <%= number_to_currency product.price_cents / 100.0 %></p>
     <p><%= product.description %></p>
-    <%= form_with url: checkout_create_path, remote: true do %>
+
+<% if cart.include?(product) %>
+  <%= button_to cart_path(product), method: :delete do %>
+    Remove From Cart ❌
+  <% end %>
+<% else %>
+    <%= form_with url: cart_index_path, method: :post do %>
       <%= hidden_field_tag(:product_id, product.id) %>
-      <%= button_tag 'Buy Now 💳' %>
+      <%= button_tag 'Add to Cart' %>
     <% end %>
+<% end %>
   </aside>

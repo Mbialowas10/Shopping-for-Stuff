@@ -60,5 +60,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 gem 'image_processing'
 gem 'stripe'
-gem 'psych'
+gem 'psych', '< 4'
 
+gem 'pry'
+gem 'pry-remote'
+gem 'pry-nav'

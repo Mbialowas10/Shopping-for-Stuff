@@ -8,66 +8,25 @@
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% #javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://js.stripe.com/v3"></script>
+
   </head>
 
   <body>
     <header>
       <h1>Buy Our Stuff</h1>
       <h3>Make Us Rich</h3>
-      <%= debug session[:shopping_cart] %>
-      <nav>
-	<%= link_to image_tag("robot.jpg", width:60), root_path %>
-	<ul>
-		<li>
-			Cart
-			<% if cart.present? %>
-				<sup><%= cart.size %></sup>
-				<ul>
-					<% cart.each do |product| %>
-						<li>
-							<%= product.name %> <%= link_to '➖', cart_path(product), method: :delete %>
-						</li>
-					<% end %>
-				</ul>
-			<% end %>
-		</li>
-	</ul>
-</nav>
+
+
     </header>
     <main>
-      <section>
-        <% if flash[:notice] %>
-          <p>
-            <%= flash[:notice] %>
-          </p>
-        <% end %>
-      </section>
+
 
       <%= yield %>
     </main>
     <footer>
       <hr>
       <p><span>🐐</span> Goats in Coats <span>🧥</span> - Copywrong <%= Time.current.year %></p>
-      <details>
-        <summary>
-            cart
-            <% if cart.present? %>
-              <sup><%= cart.size %> </sup>
-            <% end %>
-        </summary>
-        <% if cart.present? %>
-          <ul>
-            <% cart.each do |p| %>
-            <li>
-              <%= p.name %> <%= button_to '❌', cart_path(p), method: :delete %>
-            </li>
-            <% end %>
-          </ul>
-          <% else %>
-            <p>No items in your cart. Please spend money :)</p>
-        <%end %>
-      </details>
+
     </footer>
   </body>
 </html>
